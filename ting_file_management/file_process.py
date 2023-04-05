@@ -1,16 +1,16 @@
+import sys
 from ting_file_management.file_management import txt_importer
 
 
 def is_file_unique(path_file, instance):
-    path_file_unique = True
-    for index in range(len(instance)):
-        try:
+    try:
+        for index in range(len(instance)):
             file_metadata = instance.search(index)
             if file_metadata["nome_do_arquivo"] == path_file:
-                path_file_unique = False
-        except (IndexError):
-            break
-    return path_file_unique
+                return False
+    except (IndexError):
+        pass
+    return True
 
 
 def process(path_file, instance):
@@ -27,8 +27,16 @@ def process(path_file, instance):
 
 
 def remove(instance):
-    """Aqui irá sua implementação"""
+    file_metadata = instance.dequeue()
+    if file_metadata is None:
+        print("Não há elementos")
+    else:
+        name = file_metadata["nome_do_arquivo"]
+        print(f"Arquivo {name} removido com sucesso")
 
 
 def file_metadata(instance, position):
-    """Aqui irá sua implementação"""
+    try:
+        print(instance.search(position))
+    except (IndexError):
+        print("Posição inválida", file=sys.stderr)
