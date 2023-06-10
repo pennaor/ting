@@ -31,10 +31,12 @@ def get_matched_metadata(word, queue: Queue, matcher):
             matcher.parse(lane, word)
         if matcher.data:
             result.append({
-                "palavra": word,
-                "arquivo": metadata["nome_do_arquivo"],
-                "ocorrencias": matcher.data
-            })
+                "metadata": metadata,
+                "search_result": {
+                    "palavra": word,
+                    "arquivo": metadata["nome_do_arquivo"],
+                    "ocorrencias": matcher.data
+                }})
     return result
 
 

@@ -23,7 +23,6 @@ def process(path_file, instance):
         "linhas_do_arquivo": rows,
     })
     instance.enqueue(file_metadata)
-    print(file_metadata)
 
 
 def remove(instance):

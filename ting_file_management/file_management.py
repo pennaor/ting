@@ -9,5 +9,5 @@ def txt_importer(path_file: str):
         with open(path_file) as file:
             content = file.read()
         return content.split("\n")
-    except(FileNotFoundError):
+    except (FileNotFoundError):
         print(f"Arquivo {path_file} não encontrado", file=sys.stderr)
