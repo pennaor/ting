@@ -3,6 +3,14 @@ from ting_file_management.queue import Queue
 
 
 class PriorityQueue(AbstractQueue):
+    """
+    Utiliza a implementação da classe Queue para
+    armazenar arquivos pequenos com prioridade.
+    Arquivos com menos de 5 linhas
+    são armazenados de forma prioritária na fila.
+    Classe implementada pela Trybe www.betrybe.com.
+    """
+
     def __init__(self):
         self.regular_priority = Queue()
         self.high_priority = Queue()

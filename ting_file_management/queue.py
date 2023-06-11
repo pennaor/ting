@@ -2,6 +2,11 @@ from ting_file_management.abstract_queue import AbstractQueue
 
 
 class Queue(AbstractQueue):
+    """
+    Queue é uma estrutura de dados FIFO(First In First Out)
+    utilizada para armazenar e manipular os arquivos que serão lidos.
+    """
+
     def __init__(self):
         self._data = list()
 
